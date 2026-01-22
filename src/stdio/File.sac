@@ -20,7 +20,7 @@ export all;
 external syserr, File fopen(string NAME, string MODE);
     #pragma effect TheFileSystem
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfopen"
     #pragma linksign [0,1,2,3]
     /*
@@ -34,7 +34,7 @@ external syserr fclose(File STREAM);
     #pragma effect TheFileSystem
     #pragma linkobj "src/File/File.o"
     #pragma linkname "SACfclose"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     /*
      * Close the stream given by the file handle STREAM.
      */
@@ -43,7 +43,7 @@ external syserr fclose(File STREAM);
 external syserr, File, string mkstemp(string template);
     #pragma effect TheFileSystem
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACmkstemp"
     #pragma linksign [0,1,2,2]
     /*
@@ -75,7 +75,7 @@ syserr, File, string tmpfile()
 external syserr fremove(string fname);
     #pragma effect TheFileSystem
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     /*
      * Remove file or directory.
      */
@@ -88,7 +88,7 @@ external syserr fremove(string fname);
 
 external syserr fputc(char C, File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfputc"
     /*
      * Write the character C to the output stream STREAM.
@@ -96,7 +96,7 @@ external syserr fputc(char C, File &STREAM);
 
 external char fgetc(File &STREAM);
     #pragma linksign [0,1]
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfgetc"
     /*
      * Get the next character from the input stream STREAM.
@@ -104,7 +104,7 @@ external char fgetc(File &STREAM);
 
 external syserr ungetc(char C, File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACungetc"
     /*
      * Put the character C back to the input stream STREAM for further
@@ -115,7 +115,7 @@ external syserr ungetc(char C, File &STREAM);
 
 external syserr fputs(string S, File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfputs"
     /*
      * Write string S to stream.
@@ -124,7 +124,7 @@ external syserr fputs(string S, File &STREAM);
 external syserr, string fgets (int size, File &STREAM);
     #pragma linkname "SACfgets"
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linksign [0,1,2,3]
     #pragma sacarg [1]
     /*
@@ -153,7 +153,7 @@ syserr, string fgetl (File &stream)
 
 external void fprintf(File &STREAM, string FORMAT, ...);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfprintf"
     /*
      * Print formatted output to STREAM which must be open for writing.
@@ -164,7 +164,7 @@ external void fprintf(File &STREAM, string FORMAT, ...);
 
 external int, ... fscanf(File &STREAM, string FORMAT);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfscanf"
     #pragma linksign [0,1,2]
     /*
@@ -180,7 +180,7 @@ external int, ... fscanf(File &STREAM, string FORMAT);
 
 external string fscans(File &STREAM, int MAX);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     /*
      * Read the next character string from the input stream STREAM. Strings
      * are delimited by any whitespace character including the
@@ -190,7 +190,7 @@ external string fscans(File &STREAM, int MAX);
 
 external string fscanl(File &STREAM, int MAX);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     /*
      * Read the next line from the input stream STREAM. Lines are character
      * strings delimited by any new-line or end-of-file symbol.
@@ -206,7 +206,7 @@ external string fscanl(File &STREAM, int MAX);
 
 external bool feof(File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfeof"
     /*
      * Test the stream STREAM for having reached the end of the respective file.
@@ -214,7 +214,7 @@ external bool feof(File &STREAM);
 
 external int fflush(File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfflush"
     /*
      * Write the buffer of a buffered output stream STREAM
@@ -223,7 +223,7 @@ external int fflush(File &STREAM);
 
 external int fseek(File &STREAM, int OFFSET, int BASE);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACfseek"
     /*
      * Reposition the stream STREAM. The new position is given as an offset
@@ -233,7 +233,7 @@ external int fseek(File &STREAM, int OFFSET, int BASE);
 
 external int ftell(File &STREAM);
     #pragma linkobj "src/File/File.o"
-    #pragma header "src/File/File.h"
+    // #pragma header "src/File/File.h"
     #pragma linkname "SACftell"
     /*
      * Return the offset of the current byte relative to
