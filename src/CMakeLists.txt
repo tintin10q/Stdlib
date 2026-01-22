@@ -270,23 +270,7 @@ SET (C_DEPS_SRC
     stdio/src/TermFile/fscanl.c
     stdio/src/TermFile/fprintf.c
     stdio/src/File/rm.c
-    stdio/src/File/mkstemp.c
-    stdio/src/File/fscans.c
-    stdio/src/File/fscanl.c
-    stdio/src/File/fscanf.c
-    stdio/src/File/fprintf.c
-    stdio/src/File/fopen.c
-    stdio/src/File/fputc.c
-    stdio/src/File/fgetc.c
-    stdio/src/File/fputs.c
-    stdio/src/File/fgets.c
-    stdio/src/File/ungetc.c
-    stdio/src/File/fflush.c
-    stdio/src/File/feof.c
-    stdio/src/File/rewind.c
-    stdio/src/File/fseek.c
-    stdio/src/File/ftell.c
-    stdio/src/File/fclose.c
+    stdio/src/File/File.c
     stdio/src/FibreIO/ScanStringArr.c
     stdio/src/FibreIO/ScanString.c
     stdio/src/FibreIO/ScanOthersArr.c
@@ -346,8 +330,8 @@ MESSAGE (DEBUG "Compiled together all source paths: ${ALL_SAC_SRC}")
 # core modules or core + extended modules are built.
 ADD_CUSTOM_TARGET (${TARGET}-all-modules ALL)
 
-# TODO(artem) We may want to introduce a mechanism of generating depenencies
-#             on a given sac2c versoin.  That is, recompiler all modules if
+# TODO(artem) We may want to introduce a mechanism of generating dependencies
+#             on a given sac2c version.  That is, recompiler all modules if
 #             sac2c version changes.
 
 
@@ -439,6 +423,7 @@ FOREACH (name ${SAC_SRC})
     # of the call to sac2c.
     GET_FILENAME_COMPONENT (dir "${CMAKE_CURRENT_BINARY_DIR}/${name}" DIRECTORY)
     GET_FILENAME_COMPONENT (dst ${name} NAME_WE)
+    GET_FILENAME_COMPONENT (src_dir "${src}" DIRECTORY)
     SET (mod
         "${DLL_BUILD_DIR}/${TARGET_ENV}/${SBI}/lib${dst}Mod${VARIANT}${MODEXT}")
     SET (tree
@@ -477,7 +462,7 @@ FOREACH (name ${SAC_SRC})
     ADD_CUSTOM_COMMAND (
         OUTPUT "${mod}" "${tree}"
         COMMAND
-            ${SAC2C} -v0 -maxoptcyc 2 -linksetsize ${LINKSETSIZE} ${NOTREE_FLAG} ${SAC2C_CC_FLAGS} -o ${DLL_BUILD_DIR} "${src}"
+            ${SAC2C} -v0 -maxoptcyc 2 -linksetsize ${LINKSETSIZE} ${NOTREE_FLAG} ${SAC2C_CC_FLAGS} -Xc -I"${src_dir}" -o ${DLL_BUILD_DIR} "${src}"
         WORKING_DIRECTORY
             "${dir}"
         MAIN_DEPENDENCY "${src}"
