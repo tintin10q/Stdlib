@@ -181,7 +181,6 @@ external int, ... fscanf(File &STREAM, string FORMAT);
 external string fscans(File &STREAM, int MAX);
     #pragma linkobj "src/File/File.o"
     #pragma header "src/File/File.h"
-    #pragma linksign [0,1,2]
     /*
      * Read the next character string from the input stream STREAM. Strings
      * are delimited by any whitespace character including the
@@ -192,7 +191,6 @@ external string fscans(File &STREAM, int MAX);
 external string fscanl(File &STREAM, int MAX);
     #pragma linkobj "src/File/File.o"
     #pragma header "src/File/File.h"
-    #pragma linksign [0,1,2]
     /*
      * Read the next line from the input stream STREAM. Lines are character
      * strings delimited by any new-line or end-of-file symbol.
@@ -210,7 +208,6 @@ external bool feof(File &STREAM);
     #pragma linkobj "src/File/File.o"
     #pragma header "src/File/File.h"
     #pragma linkname "SACfeof"
-    #pragma linksign [0,1]
     /*
      * Test the stream STREAM for having reached the end of the respective file.
      */
@@ -219,7 +216,6 @@ external int fflush(File &STREAM);
     #pragma linkobj "src/File/File.o"
     #pragma header "src/File/File.h"
     #pragma linkname "SACfflush"
-    #pragma linksign [0,1]
     /*
      * Write the buffer of a buffered output stream STREAM
      * to the respective file.
@@ -239,7 +235,6 @@ external int ftell(File &STREAM);
     #pragma linkobj "src/File/File.o"
     #pragma header "src/File/File.h"
     #pragma linkname "SACftell"
-    #pragma linksign [0,1]
     /*
      * Return the offset of the current byte relative to
      * the beginning of the file associated with STREAM.
