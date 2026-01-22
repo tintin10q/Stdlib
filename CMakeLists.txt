@@ -69,3 +69,12 @@ SET (PROJECT_MINOR_VERSION)
 SET (PROJECT_PATCH_VERSION)
 GET_PROJECT_VERSION (PROJECT_SHORT_VERSION PROJECT_MAJOR_VERSION PROJECT_MINOR_VERSION PROJECT_PATCH_VERSION)
 INCLUDE ("${PROJECT_SOURCE_DIR}/cmake/cpack.cmake")
+
+add_library(QUINTEN1 STATIC
+        src/stdio/src/File/File.c
+        src/stdio/src/File/File.h   # List for CLion visibility
+)
+
+target_include_directories(QUINTEN1 PRIVATE
+        /home/qc/Projecten/sac2c/include
+)
