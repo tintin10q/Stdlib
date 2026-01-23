@@ -96,7 +96,8 @@ sac_int SACfgets(SACarg **str, sac_int size, File f)
     }
 
     size_t written = strlen (buf) + sizeof ('\0');
-    *str = SACARGcreateFromPointer (SACTYPE_String__string, buf, 1, written);
+    sac_int shp[] = { (sac_int)written };
+    *str = SACARGcreateFromPointer (SACTYPE_String__string, buf, 1, shp);
 
     return -1;
 }
