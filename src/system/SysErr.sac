@@ -8,11 +8,13 @@ typedef int syserr;
 export all;
 
 external bool fail(syserr ERROR);
-    #pragma linkobj "src/SysErr/failsucc.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    //#pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0,1]
 
 external bool clear(syserr ERROR);
-    #pragma linkobj "src/SysErr/failsucc.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    //#pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0,1]
     /*
      * Check if the error condition produced by a call to a system function
@@ -20,7 +22,8 @@ external bool clear(syserr ERROR);
      */
 
 external string strerror(syserr ERROR);
-    #pragma linkobj "src/SysErr/strerror.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    //#pragma header "src/SysErr/SysErr.h"
     #pragma linkname "SACstrerror"
     #pragma linksign [0,1]
     /*
@@ -30,7 +33,7 @@ external string strerror(syserr ERROR);
 
 /******************************************************************************
  *
- * The following functions provide access to system dependend error codes.
+ * The following functions provide access to system dependent error codes.
  * Not all of these error codes are useful in connection with the SaC standard
  * libraries. Nevertheless, they are included for reasons of completeness.
  *
@@ -43,172 +46,206 @@ external string strerror(syserr ERROR);
  ******************************************************************************/
 
 external syserr Eperm();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    //#pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Not owner. */
 
 external syserr Enoent();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    //#pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No such file or directory. */
 
 external syserr Esrch();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No such process. */
 
 external syserr Eintr();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Interrupted system call. */
 
 external syserr Eio();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* I/O error. */
 
 external syserr Enxio();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No such device or address. */
 
 external syserr E2big();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Arg list too long. */
 
 external syserr Enoexec();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Exec format error. */
 
 external syserr Ebadf();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Bad file number. */
 
 external syserr Echild();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No children. */
 
 external syserr Eagain();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No more processes. */
 
 external syserr Enomem();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Not enough core. */
 
 external syserr Eacces();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Permission denied. */
 
 external syserr Efault();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Bad address. */
 
 external syserr Enotblk();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Block device required. */
 
 external syserr Ebusy();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Mount device busy. */
 
 external syserr Eexist();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* File exists. */
 
 external syserr Exdev();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Cross-device link. */
 
 external syserr Enodev();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No such device. */
 
 external syserr Enotdir();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Not a directory*/
 
 external syserr Eisdir();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Is a directory. */
 
 external syserr Einval();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Invalid argument. */
 
 external syserr Enfile();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* File table overflow. */
 
 external syserr Emfile();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many open files. */
 
 external syserr Enotty();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Not a typewriter. */
 
 external syserr Etxtbsy();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Text file busy. */
 
 external syserr Efbig();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* File too large. */
 
 external syserr Enospc();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No space left on device. */
 
 external syserr Espipe();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Illegal seek. */
 
 external syserr Erofs();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Read-only file system. */
 
 external syserr Emlink();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many links. */
 
 external syserr Epipe();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Broken pipe. */
 
 external syserr Eloop();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many levels of symbolic links. */
 
 external syserr Enametoolong();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* File name too long. */
 
@@ -219,62 +256,74 @@ external syserr Enametoolong();
  ******************************************************************************/
 
 external syserr Enetdown();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Network is down. */
 
 external syserr Enetunreach();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Network is unreachable. */
 
 external syserr Enetreset();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Network dropped connection on reset. */
 
 external syserr Econnaborted();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Software caused connection abort. */
 
 external syserr Econnreset();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Connection reset by peer. */
 
 external syserr Enobufs();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No buffer space available. */
 
 external syserr Eisconn();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Socket is already connected. */
 
 external syserr Enotconn();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Socket is not connected. */
 
 external syserr Eshutdown();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Can't send after socket shutdown. */
 
 external syserr Etoomanyrefs();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many references: can't splice. */
 
 external syserr Etimedout();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Connection timed out. */
 
 external syserr Econnrefused();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Connection refused. */
 
@@ -285,17 +334,20 @@ external syserr Econnrefused();
  ******************************************************************************/
 
 external syserr Ehostdown();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Host is down. */
 
 external syserr Ehostunreach();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* No route to host. */
 
 external syserr Enotempty();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Directory not empty. */
 
@@ -306,12 +358,14 @@ external syserr Enotempty();
  ******************************************************************************/
 
 external syserr Eusers();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many users. */
 
 external syserr Edquot();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Disc quota exceeded. */
 
@@ -322,11 +376,13 @@ external syserr Edquot();
  ******************************************************************************/
 
 external syserr Estale();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Stale NFS file handle. */
 
 external syserr Eremote();
-    #pragma linkobj "src/SysErr/errorcode.o"
+    #pragma linkobj "src/SysErr/SysErr.o"
+    // #pragma header "src/SysErr/SysErr.h"
     #pragma linksign [0]
     /* Too many levels of remote in path. */

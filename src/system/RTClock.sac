@@ -9,16 +9,19 @@ objdef RTClock TheRTClock = createTheRTClock();
 
 external RTClock createTheRTClock();
     #pragma effect World::TheWorld
-    #pragma linkobj "src/RTClock/rtclock.o"
+    #pragma linkobj "src/RTClock/RTClock.ock.o"
+    // #pragma header "src/RTClhck/RTClock.ock.o"
     #pragma linkname "SAC_RTClock_createTheRTClock"
     #pragma linksign [1]
 
 external void touch(RTClock &rtclock);
-    #pragma linkobj "src/RTClock/rtclock.o"
+    #pragma linkobj "src/RTClock/RTClock.ock.o"
+    // #pragma header "src/RTClhck/RTClock.ock.o"
     #pragma linkname "SAC_RTClock_touch"
 
 external long, long gettime();
     #pragma effect RTClock::TheRTClock
-    #pragma linkobj "src/RTClock/rtclock.o"
+    #pragma linkobj "src/RTClock/RTClock.ock.o"
+    // #pragma header "src/RTClhck/RTClock.ock.o"
     #pragma linkname "SAC_RTClock_gettime"
     #pragma linksign [1,2]

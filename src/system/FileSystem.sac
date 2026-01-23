@@ -19,7 +19,8 @@ objdef FileSystem TheFileSystem = create_TheFileSystem( );
 external FileSystem create_TheFileSystem( );
     #pragma effect World::TheWorld
     #pragma linksign [0]
-    #pragma linkobj  "src/FileSystem/filesys.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
 
 
   /*
@@ -30,7 +31,8 @@ external FileSystem create_TheFileSystem( );
 external syserr rename(string OLDNAME, string NEWNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACrename"
-    #pragma linkobj  "src/FileSystem/rename.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Rename file OLDNAME to NEWNAME.
@@ -40,7 +42,8 @@ external syserr rename(string OLDNAME, string NEWNAME);
 external syserr remove(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACremove"
-    #pragma linkobj  "src/FileSystem/remove.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.ove.o"
+    // #pragma header "src/FileSystem/FileSystem.hve.o"
     #pragma linksign [0,1]
     /*
      * Remove the file given by PATHNAME from the file system.
@@ -50,7 +53,8 @@ external syserr remove(string PATHNAME);
 external syserr symlink(string PATHNAME, string LINKNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACsymlink"
-    #pragma linkobj  "src/FileSystem/symlink.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Create a symbolic link to file PATHNAME which is called LINKNAME.
@@ -60,7 +64,8 @@ external syserr symlink(string PATHNAME, string LINKNAME);
 external bool, syserr access(string PATHNAME, int HOW);
     #pragma effect TheFileSystem
     #pragma linkname "SACaccess"
-    #pragma linkobj  "src/FileSystem/access.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2,3]
     /*
      * Test if access to file PATHNAME is granted.
@@ -77,7 +82,8 @@ external bool, syserr access(string PATHNAME, int HOW);
 external bool, syserr isdir(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACisdir"
-    #pragma linkobj  "src/FileSystem/testfile.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Test PATHNAME for being a directory.
@@ -87,7 +93,8 @@ external bool, syserr isdir(string PATHNAME);
 external bool, syserr isreg(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACisreg"
-    #pragma linkobj  "src/FileSystem/testfile.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Test PATHNAME for being a regular file.
@@ -97,7 +104,8 @@ external bool, syserr isreg(string PATHNAME);
 external bool, syserr islnk(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACislnk"
-    #pragma linkobj  "src/FileSystem/testfile.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Test PATHNAME for being a symbolic link.
@@ -107,7 +115,8 @@ external bool, syserr islnk(string PATHNAME);
 external ulonglong, syserr filesize(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACfilesize"
-    #pragma linkobj  "src/FileSystem/testfile.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1,2]
     /*
      * Return the size of the filesystem object in bytes.
@@ -123,7 +132,8 @@ external ulonglong, syserr filesize(string PATHNAME);
 external string getcwd();
     #pragma effect TheFileSystem
     #pragma linkname "SACgetcwd"
-    #pragma linkobj  "src/FileSystem/dir.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0]
     /*
      * Get the current working directory.
@@ -133,7 +143,8 @@ external string getcwd();
 external syserr chdir(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACchdir"
-    #pragma linkobj  "src/FileSystem/dir.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1]
     /*
      * Change the current working directory to PATHNAME.
@@ -143,7 +154,8 @@ external syserr chdir(string PATHNAME);
 external syserr mkdir(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACmkdir"
-    #pragma linkobj  "src/FileSystem/dir.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1]
     /*
      * Create the directory PATHNAME.
@@ -153,7 +165,8 @@ external syserr mkdir(string PATHNAME);
 external syserr rmdir(string PATHNAME);
     #pragma effect TheFileSystem
     #pragma linkname "SACrmdir"
-    #pragma linkobj  "src/FileSystem/dir.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1]
     /*
      * Remove the directory PATHNAME.
@@ -167,7 +180,8 @@ external syserr rmdir(string PATHNAME);
 
 external string P_tmpdir();
     #pragma linkname "SACPtmpdir"
-    #pragma linkobj  "src/FileSystem/pltmp.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0]
     /*
      * Path-prefix for storing temporary files on the specific system,
@@ -181,7 +195,8 @@ external string P_tmpdir();
 external string mkdtemp(string TEMPLATE);
     #pragma effect TheFileSystem
     #pragma linkname "SACmkdtemp"
-    #pragma linkobj  "src/FileSystem/mktemp.o"
+    #pragma linkobj  "src/FileSystem/FileSystem.o"
+    // #pragma header "src/FileSystem/FileSystem.h"
     #pragma linksign [0,1]
     /*
      * Create a unique file name,  typically  in  a  temporary

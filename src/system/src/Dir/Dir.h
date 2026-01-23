@@ -1,3 +1,5 @@
+#ifndef _STDLIB_DIR_H_
+#define _STDLIB_DIR_H_
 /*
  * Implementation of standard module Dir
  */
@@ -11,3 +13,4 @@
 #include "sacinterface.h"
 
 typedef char* string;
+#endif

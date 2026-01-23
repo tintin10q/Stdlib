@@ -16,7 +16,8 @@ export all;
 
 external char getopt(string opts);
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "getopt_sac"
     #pragma linksign [0,1]
     /*
@@ -27,7 +28,8 @@ external char getopt(string opts);
      */
 
 external char optEND();
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "optEND"
     #pragma linksign [0]
     /*
@@ -36,7 +38,8 @@ external char optEND();
 
 external string optarg();
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "get_optarg"
     #pragma linksign [0]
     /*
@@ -46,7 +49,8 @@ external string optarg();
 
 external char optopt();
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "get_optopt"
     #pragma linksign [0]
     /*
@@ -55,7 +59,8 @@ external char optopt();
 
 external int optind();
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "get_optind"
     #pragma linksign [0]
     /*
@@ -64,7 +69,8 @@ external int optind();
 
 external void optind(int set);
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "set_optind"
     #pragma linksign [1]
     /*
@@ -73,7 +79,8 @@ external void optind(int set);
 
 external bool opterr();
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "get_opterr"
     #pragma linksign [0]
     /*
@@ -82,7 +89,8 @@ external bool opterr();
 
 external void opterr(bool set);
     #pragma effect TheCommandLine
-    #pragma linkobj "src/GetOpt/getopt.o"
+    #pragma linkobj "src/GetOpt/GetOpt.opt.o"
+    // #pragma header "src/GetOpt/GetOpt.hpt.o"
     #pragma linkname "set_opterr"
     #pragma linksign [1]
     /*

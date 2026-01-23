@@ -6,3 +6,4 @@ export all;
 external void timeStamp();
     #pragma effect World::TheWorld
     #pragma linkobj "src/TimeStamp/TimeStamp.o"
+    // #pragma header "src/TimeStamp/TimeStamp.h"

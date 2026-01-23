@@ -9,35 +9,42 @@ export all;
 
 external RTimer createRTimer();
     #pragma effect TheRTClock
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_createRTimer"
     #pragma linksign [1]
 
 external void destroyRTimer(RTimer rtimer);
     #pragma effect TheRTClock
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_destroyRTimer"
 
 external void startRTimer(RTimer &rtimer);
     #pragma effect TheRTClock
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_startRTimer"
 
 external void stopRTimer(RTimer &rtimer);
     #pragma effect TheRTClock
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_stopRTimer"
 
 external void resetRTimer(RTimer &rtimer);
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_resetRTimer"
 
 external long, long getRTimerLong(RTimer &rtimer);
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_getRTimerLong"
     #pragma linksign [2,3,1]
 
 external double getRTimerDbl(RTimer &rtimer);
-    #pragma linkobj "src/RTimer/rtimer.o"
+    #pragma linkobj "src/RTimer/RTimer.o"
+    // #pragma header "src/RTimer/RTimer.h"
     #pragma linkname "SAC_RTimer_getRTimerDbl"
     #pragma linksign [0,1]

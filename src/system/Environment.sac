@@ -19,13 +19,15 @@ objdef Environment TheEnvironment = create_TheEnvironment( );
 external Environment create_TheEnvironment( );
     #pragma effect World::TheWorld
     #pragma linksign [0]
-    #pragma linkobj  "src/Environment/Env.o"
+    #pragma linkobj  "src/Environment/Environment.o"
+    // #pragma header "src/Envirhnment/Environment.o"
 
 
 external string GetEnv(string ENVVAR);
     #pragma effect TheEnvironment
     #pragma linksign [0,1]
-    #pragma linkobj  "src/Environment/GetEnv.o"
+    #pragma linkobj  "src/Environment/Environment.o"
+    // #pragma header "src/Envirhnment/Environment.o"
     /*
      * Get the value of the environment variable ENVVAR from the current
      * environment.
@@ -34,7 +36,8 @@ external string GetEnv(string ENVVAR);
 external bool ExistEnv(string ENVVAR);
     #pragma effect TheEnvironment
     #pragma linksign [0,1]
-    #pragma linkobj  "src/Environment/ExistEnv.o"
+    #pragma linkobj  "src/Environment/Environment.o"
+    // #pragma header "src/Envirhnment/Environment.o"
     /*
      * Check if the environment variable ENVVAR exists in the current
      * environment.
@@ -43,7 +46,8 @@ external bool ExistEnv(string ENVVAR);
 external bool SetEnv(string ENVVAR, string VALUE, bool OVERWRITE);
     #pragma effect TheEnvironment
     #pragma linksign [0,1,2,3]
-    #pragma linkobj  "src/Environment/SetEnv.o"
+    #pragma linkobj  "src/Environment/Environment.o"
+    // #pragma header "src/Envirhnment/Environment.o"
     /*
      * Set the environment variable ENVVAR to VALUE. If ENVVAR is already
      * set in the current environment, then the old value is only
@@ -53,7 +57,8 @@ external bool SetEnv(string ENVVAR, string VALUE, bool OVERWRITE);
 
 external void UnsetEnv(string ENVVAR);
     #pragma effect TheEnvironment
-    #pragma linkobj  "src/Environment/UnsetEnv.o"
+    #pragma linkobj  "src/Environment/Environment.o"
+    // #pragma header "src/Envirhnment/Environment.o"
     /*
      * Clear the environment variable ENVVAR from the current environment.
      */
@@ -61,7 +66,8 @@ external void UnsetEnv(string ENVVAR);
 external int EnvCount();
     #pragma effect TheEnvironment
     #pragma linksign [0]
-    #pragma linkobj  "src/Environment/Environ.o"
+    #pragma linkobj  "src/Environment/Environment.on.o"
+    // #pragma header "src/Envirhnment/Environment.on.o"
     /*
      * Return the number of environment variables.
      */
@@ -69,7 +75,8 @@ external int EnvCount();
 external string IndexEnv(int N);
     #pragma effect TheEnvironment
     #pragma linksign [0,1]
-    #pragma linkobj  "src/Environment/Environ.o"
+    #pragma linkobj  "src/Environment/Environment.on.o"
+    // #pragma header "src/Envirhnment/Environment.on.o"
     /*
      * Return the N'th environment variable.
      */

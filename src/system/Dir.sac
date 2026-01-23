@@ -12,7 +12,7 @@ export all;
 external syserr, Dir opendir(string NAME);
     #pragma effect TheFileSystem
     #pragma linksign [0,1,2]
-    #pragma linkobj "src/Dir/opendir.o"
+    #pragma linkobj "src/Dir/Dir.o"
     #pragma linkname "SACopendir"
     /*
      * Open a directory stream using the directory NAME.
@@ -25,7 +25,7 @@ external syserr, Dir opendir(string NAME);
 external void closedir(Dir& DIR);
     #pragma effect TheFileSystem
     #pragma linksign [1]
-    #pragma linkobj "src/Dir/closedir.o"
+    #pragma linkobj "src/Dir/Dir.o"
     #pragma linkname "SACclosedir"
     /*
      * Close the directory stream DIR.
@@ -34,7 +34,8 @@ external void closedir(Dir& DIR);
 external string readdir(Dir& DIR);
     #pragma effect TheFileSystem
     #pragma linksign [0,1]
-    #pragma linkobj "src/Dir/readdir.o"
+    #pragma linkobj "src/Dir/Dir.o"
+    // #pragma header "src/Dir/Dir.h"
     #pragma linkname "SACreaddir"
     /*
      * Read the next entry from the directory stream DIR.
@@ -46,7 +47,8 @@ external string readdir(Dir& DIR);
 external void rewinddir(Dir& DIR);
     #pragma effect TheFileSystem
     #pragma linksign [1]
-    #pragma linkobj "src/Dir/rewinddir.o"
+    #pragma linkobj "src/Dir/Dir.o"
+    // #pragma header "src/Dir/Dir.h"
     #pragma linkname "SACrewinddir"
     /*
      * Reposition the directory stream DIR to the beginning.
@@ -55,7 +57,8 @@ external void rewinddir(Dir& DIR);
 external long telldir(Dir& DIR);
     #pragma effect TheFileSystem
     #pragma linksign [0,1]
-    #pragma linkobj "src/Dir/telldir.o"
+    #pragma linkobj "src/Dir/Dir.o"
+    // #pragma header "src/Dir/Dir.h"
     #pragma linkname "SACtelldir"
     /*
      * Return the current position of the directory stream DIR.
@@ -65,7 +68,8 @@ external long telldir(Dir& DIR);
 external void seekdir(Dir& DIR, long POS);
     #pragma effect TheFileSystem
     #pragma linksign [1,2]
-    #pragma linkobj "src/Dir/seekdir.o"
+    #pragma linkobj "src/Dir/Dir.o"
+    // #pragma header "src/Dir/Dir.h"
     #pragma linkname "SACseekdir"
     /*
      * Reposition the directory stream DIR to POS.

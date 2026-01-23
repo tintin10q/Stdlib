@@ -13,14 +13,17 @@ objdef Clock TheClock = create_TheClock();
 
 external Clock create_TheClock();
     #pragma effect World::TheWorld
-    #pragma linkobj "src/Clock/clock.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linksign [0]
+    #pragma "src/Clock/Clock.h"
     /*
      * Functions for generating time values.
      */
 
 external time to_time(int secs);
-    #pragma linkobj "src/Clock/to_time.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACto_time"
     #pragma linksign [0,1]
     /*
@@ -29,7 +32,8 @@ external time to_time(int secs);
 
 external time gettime();
     #pragma effect TheClock
-    #pragma linkobj "src/Clock/gettime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACgettime"
     #pragma linksign [0]
     /* Get the current system time.
@@ -42,7 +46,8 @@ external time gettime();
      */
 
 external time, bool mktime(int YEAR, int MON, int DAY, int HOUR, int MIN, int SEC);
-    #pragma linkobj "src/Clock/mktime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACmktime"
     #pragma linksign [0,1,2,3,4,5,6,7]
     /*
@@ -58,7 +63,8 @@ external time, bool mktime(int YEAR, int MON, int DAY, int HOUR, int MIN, int SE
  ******************************************************************************/
 
 external int sec(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACsec"
     #pragma linksign [0,1]
     /*
@@ -68,7 +74,8 @@ external int sec(time T);
      */
 
 external int min(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACmin"
     #pragma linksign [0,1]
     /*
@@ -76,7 +83,8 @@ external int min(time T);
      */
 
 external int hour(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SAChour"
     #pragma linksign [0,1]
     /*
@@ -84,7 +92,8 @@ external int hour(time T);
      */
 
 external int mday(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACmday"
     #pragma linksign [0,1]
     /*
@@ -92,7 +101,8 @@ external int mday(time T);
      */
 
 external int mon(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACmon"
     #pragma linksign [0,1]
     /*
@@ -100,7 +110,8 @@ external int mon(time T);
      */
 
 external int year(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACyear"
     #pragma linksign [0,1]
     /*
@@ -108,7 +119,8 @@ external int year(time T);
      */
 
 external int wday(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACwday"
     #pragma linksign [0,1]
     /*
@@ -116,7 +128,8 @@ external int wday(time T);
      */
 
 external int yday(time T);
-    #pragma linkobj "src/Clock/extracttime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACyday"
     #pragma linksign [0,1]
     /*
@@ -124,7 +137,8 @@ external int yday(time T);
      */
 
 external int, int, int clock(time T);
-    #pragma linkobj "src/Clock/date.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACclock"
     #pragma linksign [0,1,2,3]
     /*
@@ -132,7 +146,8 @@ external int, int, int clock(time T);
      */
 
 external int, int, int date(time T);
-    #pragma linkobj "src/Clock/date.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACdate"
     #pragma linksign [0,1,2,3]
     /*
@@ -146,7 +161,8 @@ external int, int, int date(time T);
  ******************************************************************************/
 
 external int isdst(time T);
-    #pragma linkobj "src/Clock/isdst.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACisdst"
     #pragma linksign [0,1]
     /*
@@ -157,12 +173,14 @@ external int isdst(time T);
      */
 
 external bool isleap(int YEAR);
-    #pragma linkobj "src/Clock/isleap.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACisleap"
     #pragma linksign [0,1]
 
 external bool isleap(time T);
-    #pragma linkobj "src/Clock/isleap.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACisleapt"
     #pragma linksign [0,1]
     /*
@@ -171,7 +189,8 @@ external bool isleap(time T);
      */
 
 external double difftime(time T1, time T0);
-    #pragma linkobj "src/Clock/difftime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACdifftime"
     #pragma linksign [0,1,2]
     /*
@@ -185,7 +204,8 @@ external double difftime(time T1, time T0);
  ******************************************************************************/
 
 external string ctime(time T);
-    #pragma linkobj "src/Clock/ctime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACctime"
     #pragma linksign [0,1]
     /*
@@ -200,7 +220,8 @@ external string ctime(time T);
      */
 
 external string strftime(int LEN, string FORMAT, time T);
-    #pragma linkobj "src/Clock/strftime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACstrftime"
     #pragma linksign [0,1,2,3]
     /*
@@ -211,7 +232,8 @@ external string strftime(int LEN, string FORMAT, time T);
      */
 
 external time, string strptime(string S, string FORMAT);
-    #pragma linkobj "src/Clock/strptime.o"
+    #pragma linkobj "src/Clock/Clock.o"
+    // #pragma header "src/Clock/Clock.h"
     #pragma linkname "SACstrptime"
     #pragma linksign [0,1,2,3]
     /*
@@ -227,7 +249,8 @@ external time, string strptime(string S, string FORMAT);
 
 external void sleep(int SECONDS);
     #pragma effect World::TheWorld
-    #pragma linkobj "src/Clock/sleep.o"
+    // #pragma header "src/Clock/Clock.h"
+    #pragma linkobj "src/Clock/Clock.o"
     #pragma linkname "SACsleep"
     #pragma linksign [1]
     /*

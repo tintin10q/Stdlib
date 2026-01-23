@@ -29,4 +29,5 @@ objdef World TheWorld = create_TheWorld();
 
 external World create_TheWorld();
     #pragma linkobj "src/World/World.o"
+    // #pragma header  "src/World/World.h"
     #pragma linksign[0]

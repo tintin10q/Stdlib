@@ -32,22 +32,26 @@ objdef CommandLine TheCommandLine = create_TheCommandLine();
 external CommandLine create_TheCommandLine();
     #pragma effect World::TheWorld
     #pragma linkobj "src/CommandLine/CommandLine.o"
+    // #pragma header "src/CommandLine/CommandLine.h"
     #pragma linksign [0]
 
 external int argc();
     #pragma effect TheCommandLine
     #pragma linkobj "src/CommandLine/CommandLine.o"
+    // #pragma header "src/CommandLine/CommandLine.h"
     #pragma linkname "SACargc"
     #pragma linksign [0]
 
 external string argv();
     #pragma effect TheCommandLine
     #pragma linkobj "src/CommandLine/CommandLine.o"
+    // #pragma header "src/CommandLine/CommandLine.h"
     #pragma linkname "SACargvall"
     #pragma linksign [0]
 
 external string argv(int N);
     #pragma effect TheCommandLine
     #pragma linkobj "src/CommandLine/CommandLine.o"
+    // #pragma header "src/CommandLine/CommandLine.h"
     #pragma linkname "SACargv"
     #pragma linksign [0,1]

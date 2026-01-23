@@ -9,17 +9,20 @@ objdef MTClock TheMTClock = createTheMTClock();
 
 external MTClock createTheMTClock();
     #pragma linkname "SAC_MTClock_createTheMTClock"
-    #pragma linkobj "src/MTClock/mtclock.o"
+    #pragma linkobj "src/MTClock/MTClock.ock.o"
+    // #pragma header "src/MTClhck/MTClock.ock.o"
     #pragma effect World::TheWorld
     #pragma linksign [1]
 
 external void touch(MTClock& mtclock);
     #pragma linkname "SAC_MTClock_touch"
-    #pragma linkobj "src/MTClock/mtclock.o"
+    #pragma linkobj "src/MTClock/MTClock.ock.o"
+    // #pragma header "src/MTClhck/MTClock.ock.o"
 
 external long, long gettime();
     #pragma linkname "SAC_MTClock_gettime"
-    #pragma linkobj "src/MTClock/mtclock.o"
+    #pragma linkobj "src/MTClock/MTClock.ock.o"
+    // #pragma header "src/MTClhck/MTClock.ock.o"
     #pragma effect MTClock::TheMTClock
     #pragma linksign [1,2]
 

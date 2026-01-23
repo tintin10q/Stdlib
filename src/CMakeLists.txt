@@ -134,58 +134,21 @@ ADD_CUSTOM_COMMAND (
     COMMENT "Generating FibreIO Parser for target `${TARGET}'")
 
 
-# C files relatively to thes CMakeLists.txt.
+# C files relatively to these CMakeLists.txt.
 SET (C_DEPS_SRC
     system/src/World/World.c
     system/src/TimeStamp/TimeStamp.c
-    system/src/Terminal/terminal.c
-    system/src/SysErr/strerror.c
-    system/src/SysErr/failsucc.c
-    system/src/SysErr/errorcode.c
-    system/src/RuntimeError/error.c
-    system/src/RTimer/rtimer.c
-    system/src/RTClock/rtclock.c
-    system/src/Process/system.c
-    system/src/Process/process.c
-    system/src/Process/pclose.c
-    system/src/MTClock/mtclock.c
-    system/src/GetOpt/getopt.c
-    system/src/FileSystem/testfile.c
-    system/src/FileSystem/symlink.c
-    system/src/FileSystem/rename.c
-    system/src/FileSystem/remove.c
-    system/src/FileSystem/pltmp.c
-    system/src/FileSystem/mktemp.c
-    system/src/FileSystem/filesys.c
-    system/src/FileSystem/dir.c
-    system/src/FileSystem/access.c
-    system/src/Environment/UnsetEnv.c
-    system/src/Environment/SetEnv.c
-    system/src/Environment/GetEnv.c
-    system/src/Environment/ExistEnv.c
-    system/src/Environment/Environ.c
-    system/src/Environment/Env.c
-    system/src/Dir/telldir.c
-    system/src/Dir/seekdir.c
-    system/src/Dir/rewinddir.c
-    system/src/Dir/readdir.c
-    system/src/Dir/opendir.c
-    system/src/Dir/closedir.c
+    system/src/Terminal/Terminal.c
+    system/src/RuntimeError/RuntimeError.c
+    system/src/RTimer/RTimer.c
+    system/src/RTClock/RTclock.c
+    system/src/MTClock/MTclock.c
+    system/src/GetOpt/GetOpt.c
+    system/src/SysErr/SysErr.c
+    system/src/Environment/Environment.c
+    system/src/Dir/Dir.c
     system/src/CommandLine/CommandLine.c
-    system/src/Clock/to_time.c
-    system/src/Clock/strptime.c
-    system/src/Clock/strftime.c
-    system/src/Clock/sleep.c
-    system/src/Clock/mktime.c
-    system/src/Clock/isleap.c
-    system/src/Clock/isdst.c
-    system/src/Clock/gettime.c
-    system/src/Clock/extracttime.c
-    system/src/Clock/difftime.c
-    system/src/Clock/date.c
-    system/src/Clock/ctime.c
-    system/src/Clock/copytime.c
-    system/src/Clock/clock.c
+    system/src/Clock/Clock.c
     structures/src/StringArray/shape.c
     structures/src/StringArray/sel.c
     structures/src/StringArray/modarray.c
@@ -423,7 +386,6 @@ FOREACH (name ${SAC_SRC})
     # of the call to sac2c.
     GET_FILENAME_COMPONENT (dir "${CMAKE_CURRENT_BINARY_DIR}/${name}" DIRECTORY)
     GET_FILENAME_COMPONENT (dst ${name} NAME_WE)
-    GET_FILENAME_COMPONENT (src_dir "${src}" DIRECTORY)
     SET (mod
         "${DLL_BUILD_DIR}/${TARGET_ENV}/${SBI}/lib${dst}Mod${VARIANT}${MODEXT}")
     SET (tree
@@ -462,7 +424,7 @@ FOREACH (name ${SAC_SRC})
     ADD_CUSTOM_COMMAND (
         OUTPUT "${mod}" "${tree}"
         COMMAND
-            ${SAC2C} -v0 -maxoptcyc 2 -linksetsize ${LINKSETSIZE} ${NOTREE_FLAG} ${SAC2C_CC_FLAGS} -Xc -I"${src_dir}" -o ${DLL_BUILD_DIR} "${src}"
+            ${SAC2C} -v0 -maxoptcyc 2 -linksetsize ${LINKSETSIZE} ${NOTREE_FLAG} ${SAC2C_CC_FLAGS} -o ${DLL_BUILD_DIR} "${src}"
         WORKING_DIRECTORY
             "${dir}"
         MAIN_DEPENDENCY "${src}"
